@@ -1,32 +1,123 @@
-.App {
-  text-align: center;
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.results-map {
+  width: 100%;
+  height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.results-pane {
+  width: 450px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 10px solid #eee;
 }
 
-.App-link {
-  color: #61dafb;
+.results-pane header {
+  background: #eee;
+  padding: 0 0 10px 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.results-pane header h1 {
+  font-size: 1.25em;
+  margin-top: 0;
+}
+
+.filter-controls select {
+  margin-left: 5px;
+  font-size: 1em;
+}
+
+/* Main section of results pane is scrollable and takes up all remaining space */
+.results-pane main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.results-container {
+  height: 100%;
+}
+
+.results-list {
+  width: 100%;
+  margin: 0;
+  padding: 5px;
+}
+
+/* This is a button so we need to totally restyle it */
+.result-item {
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  background: white;
+  border: none;
+  cursor: pointer;
+}
+
+.result-name {
+  font-size: 1em;
+  margin: 0.4em 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 450px;
+}
+
+.result-item .result-name {
+  font-weight: normal;
+}
+
+.result-details {
+  margin: 0.4em 0;
+  font-size: 0.85em;
+}
+
+.result-item .result-details {
+  color: #666;
+}
+
+.result-item.opened {
+  background: #E3F2FD; /* Material Blue 50 */
+}
+
+.result-info-window {
+  font-size: 16px;
+}
+
+.results-pane footer {
+  color: #666;
+  background-color: #eee;
+  font-size: 0.8em;
+  padding: 10px 0 0 15px;
+}
+
+.error-message {
+  margin: 15px;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 900px) {
+  .app {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  .results-pane {
+    width: 100%;
+    height: 50vh;
+  }
+  .results-map {
+    height: 50vh;
+  }
+  .result-info-window .result-name {
+    max-width: 270px;
+  }
+  .result-info-window .result-details {
+    max-width: 270px;
   }
 }
